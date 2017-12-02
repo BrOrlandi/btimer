@@ -1,0 +1,16 @@
+{
+  "name": "electron-timer-app",
+  "version": "1.0.0",
+  "description": "A simple clock made with electron",
+  "main": "index.js",
+  "repository": "git@github.com:BrOrlandi/electron-timer-app.git",
+  "author": "BrOrlandi",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+}
