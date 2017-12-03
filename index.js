@@ -17,7 +17,7 @@ function createWindow() {
     x: 120,
     y: 120,
     backgroundColor: '#113A47',
-    // frame: false,
+    frame: false,
     resizable: true,
     icon: path.join(__dirname, 'assets/icon-1024.png'),
     title: 'Electron Timer',
