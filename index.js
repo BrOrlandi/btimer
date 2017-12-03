@@ -1,7 +1,7 @@
 const electron = require('electron');
 const path = require('path');
 // Module to control application life.
-const {app} = electron;
+const {app, ipcMain} = electron;
 // Module to create native browser window.
 const {BrowserWindow} = electron;
 // Keep a global reference of the window object, if you don't, the window will
@@ -54,3 +54,17 @@ app.on('activate', () => {
     createWindow();
   }
 });
+
+ipcMain.on('asynchronous-message', (event, arg) => {
+  console.log(arg)  // prints "ping"
+  // event.sender.send('asynchronous-reply', 'pong')
+  if(arg === 'menu'){
+    const {Menu, MenuItem} = electron
+
+    const menu = new Menu()
+    menu.append(new MenuItem({label: 'MenuItem1x', click() { console.log('item 1 clicked') }}))
+    menu.append(new MenuItem({type: 'separator'}))
+    menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
+    menu.popup(win);
+  }
+})
