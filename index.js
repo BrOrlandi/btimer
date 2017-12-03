@@ -1,4 +1,5 @@
 const electron = require('electron');
+const path = require('path');
 // Module to control application life.
 const {app} = electron;
 // Module to create native browser window.
@@ -9,10 +10,17 @@ let win;
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-      width: 500,
-      height: 300,
-      frame: false,
-      resizable: true
+    alwaysOnTop: true,
+    titleBarStyle: 'hidden', // MacOS
+    width: 500,
+    height: 100,
+    x: 120,
+    y: 120,
+    backgroundColor: '#113A47',
+    // frame: false,
+    resizable: true,
+    icon: path.join(__dirname, 'assets/icon-1024.png'),
+    title: 'Electron Timer',
   });
 
   // and load the index.html of the app.

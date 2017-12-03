@@ -1,7 +1,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Orbitron:700);
 html, body {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
     background: #113A47;
     margin: 0;
     height: 100vh;
@@ -16,8 +16,11 @@ html, body {
 }
 
 .timer {
-    font-size: 14vw;
+    -webkit-user-select: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10vw;
     color: #D7ECFF;
+    padding-top: 3.2vw;
     text-shadow: 0 0 0.2vw #fff,
         0 0 0.6vw #fff,
         0 0 1vw #fff,
@@ -45,4 +48,10 @@ html, body {
     100% {
         opacity: 0;
     }
+}
+
+.timer span {
+    width: 10vw;
+    display: inline-block;
+    text-align: center;
 }
