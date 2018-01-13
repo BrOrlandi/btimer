@@ -1,3 +1,8 @@
+if (process.env.NODE_ENV === 'development') {
+  console.log('Running in development mode.');
+  require('electron-reload')(__dirname);
+}
+
 const electron = require('electron');
 const path = require('path');
 // Module to control application life.
@@ -34,6 +39,11 @@ function createWindow() {
     // when you should delete the corresponding element.
     win = null;
   });
+  win.setMenu(null);
+
+  if (process.env.NODE_ENV === 'development') {
+    win.webContents.openDevTools();
+  }
 }
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

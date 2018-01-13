@@ -9,7 +9,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "electron .",
+    "start": "NODE_ENV=development electron .",
     "build-linux": "electron-packager . 'Electron Timer' --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icon-1024.png --prune=true --out=dist",
     "package-debian": "electron-installer-debian --src 'dist/Electron Timer-linux-x64/' --arch amd64 --config debian.json",
     "build-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icon-1024.icns --prune=true --out=dist",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "electron-installer-debian": "^0.7.1",
     "electron-installer-dmg": "^0.2.1",
-    "electron-packager": "^10.1.0"
+    "electron-packager": "^10.1.0",
+    "electron-reload": "^1.2.2"
   }
 }
