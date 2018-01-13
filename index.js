@@ -17,8 +17,8 @@ function createWindow() {
   win = new BrowserWindow({
     alwaysOnTop: true,
     titleBarStyle: 'hidden', // MacOS
-    width: 500,
-    height: 100,
+    width: 660,
+    height: 165,
     x: 120,
     y: 120,
     backgroundColor: '#113A47',
