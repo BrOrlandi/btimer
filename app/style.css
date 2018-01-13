@@ -1,57 +1,57 @@
 
 @import url(https://fonts.googleapis.com/css?family=Orbitron:700);
 html, body {
-    font-family: 'Orbitron', -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
-    background: #113A47;
-    margin: 0;
-    height: 100vh;
+  font-family: 'Orbitron', -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
+  background: #113A47;
+  margin: 0;
+  height: 100vh;
 }
 
 .container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .timer {
-    -webkit-user-select: none;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 10vw;
-    color: #D7ECFF;
-    padding-top: 3.2vw;
-    text-shadow: 0 0 0.2vw #fff,
-        0 0 0.6vw #fff,
-        0 0 1vw #fff,
-        0 0 1.5vw #228DFF,
-        0 0 2.5vw #228DFF,
-        0 0 3vw #228DFF,
-        0 0 4vw #228DFF,
-        0 0 2vw #228DFF;
+  -webkit-user-select: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10vw;
+  color: #D7ECFF;
+  padding-top: 3.2vw;
+  text-shadow: 0 0 0.2vw #fff,
+    0 0 0.6vw #fff,
+    0 0 1vw #fff,
+    0 0 1.5vw #228DFF,
+    0 0 2.5vw #228DFF,
+    0 0 3vw #228DFF,
+    0 0 4vw #228DFF,
+    0 0 2vw #228DFF;
     /* text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 15px #228DFF, 0 0 25px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF; */
 }
 
 #tick {
-    animation: ticker 1s infinite linear;
+  animation: ticker 1s infinite linear;
 }
 
 @keyframes ticker {
-    0% {
-        opacity: 0;
-    }
+  0% {
+    opacity: 0;
+  }
 
-    50% {
-        opacity: 1;
-    }
+  50% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0;
-    }
+  100% {
+    opacity: 0;
+  }
 }
 
 .timer span {
-    width: 10vw;
-    display: inline-block;
-    text-align: center;
+  width: 10vw;
+  display: inline-block;
+  text-align: center;
 }
