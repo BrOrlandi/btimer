@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "electron": "^1.7.9",
-    "moment": "^2.19.3"
+    "moment": "^2.19.3",
+    "vanilla-masker": "^1.2.0"
   },
   "devDependencies": {
     "electron-installer-debian": "^0.7.1",

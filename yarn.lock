@@ -2495,6 +2495,10 @@ validate.io-undefined@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/validate.io-undefined/-/validate.io-undefined-1.0.3.tgz#7e27fcbb315b841e78243431897671929e20b7f4"
 
+vanilla-masker@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vanilla-masker/-/vanilla-masker-1.2.0.tgz#c2830e9d994a5fecd2261506477c2707fe589756"
+
 verror@1.10.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400"

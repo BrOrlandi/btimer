@@ -15,16 +15,25 @@ html, body {
   align-items: center;
 }
 
-.timer {
+#timerDisplay {
   display: flex;
   align-items: center;
   flex-grow: 1;
-  -webkit-user-select: none;
+  cursor: pointer;
+  padding-top: 3.2vw;
+}
+
+#timerDisplay span {
+  width: 10vw;
+  display: inline-block;
+  text-align: center;
+}
+
+.timerFont {
   user-select: none;
   font-family: 'Orbitron', sans-serif;
   font-size: 10vw;
   color: #D7ECFF;
-  padding-top: 3.2vw;
   text-shadow: 0 0 0.2vw #fff,
     0 0 0.6vw #fff,
     0 0 1vw #fff,
@@ -36,7 +45,7 @@ html, body {
     /* text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 15px #228DFF, 0 0 25px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF; */
 }
 
-.tick {
+.animate .tick {
   animation: ticker 1s infinite linear;
 }
 
@@ -54,13 +63,8 @@ html, body {
   }
 }
 
-.timer span {
-  width: 10vw;
-  display: inline-block;
-  text-align: center;
-}
-
 .buttons {
+  user-select: none;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -113,7 +117,7 @@ html, body {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 @media (orientation : portrait) {
@@ -140,4 +144,41 @@ html, body {
   .sub {
     display: none;
   }
+}
+
+#timerEdit {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+#timerInput:focus {
+  outline: none;
+  border: white solid 3px;
+}
+#timerInput {
+  border: white solid 1px;
+  background-color: transparent;
+  line-height: 1.6em;
+  text-align: center;
+  padding-top: 0.25em;
+  width: 66vw;
+  letter-spacing: 2vw;
+
+  box-shadow: 0 0 0.2vw #fff,
+    0 0 0.6vw #fff,
+    0 0 1vw #fff,
+    0 0 1.5vw #228DFF,
+    0 0 2.5vw #228DFF,
+    0 0 3vw #228DFF,
+    0 0 4vw #228DFF,
+    0 0 2vw #228DFF,
+    inset 0 0 0.2vw #fff,
+    inset 0 0 0.6vw #fff,
+    inset 0 0 1vw #fff,
+    inset 0 0 1.5vw #228DFF,
+    inset 0 0 2.5vw #228DFF,
+    inset 0 0 3vw #228DFF,
+    inset 0 0 4vw #228DFF,
+    inset 0 0 2vw #228DFF;
 }

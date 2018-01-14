@@ -1,26 +1,33 @@
+require('./inputMask');
+
 const moment = require('moment');
-const Timer = require('./Timer');
-var {ipcRenderer, remote} = require('electron');
+const Timer = require('./timer');
+const parseInput = require('./parseInput');
 
-const parseTime = (time) => {
-  let momentTime = moment.duration(time, 'milliseconds');
-  let sec = momentTime.seconds() < 10 ? ('0' + momentTime.seconds()) : momentTime.seconds();
-  let min = momentTime.minutes() < 10 ? ('0' + momentTime.minutes()) : momentTime.minutes();
-  let mil = Math.floor(momentTime.milliseconds());
+timerDisplay.addEventListener('click', (e) => {
+  timerDisplay.classList.add('hide');
+  timerEdit.classList.remove('hide');
+  timerInput.focus();
+  Timer.stop();
+});
 
-  if(mil < 100){
-    mil = '0'+mil;
+timerInput.addEventListener('keyup', (e) => {
+  const code = e.code;
+  const isExitCode = 'Escape' === code ||
+                    'Space' === code ||
+                    'Enter' === code;
+  if(isExitCode){
+    timerDisplay.classList.remove('hide');
+    timerEdit.classList.add('hide');
+
+    const inputText = e.target.value || '0';
+
+    const value = parseInput(inputText);
+    Timer.setValue(value);
+    if(value){
+      Timer.start();
+    }
   }
-  if(mil < 10){
-    mil = '0'+mil;
-  }
+});
 
-  const text = `${min}:${sec}:${mil}`;
-  return text.split('').map((char) => {
-    return `<span>${char}</span>`;
-  }).join('');
-};
-
-const timer = new Timer((time) => {
-  timerDiv.innerHTML = parseTime(time);
-},26000,true);
+Timer.setValue(600000);
