@@ -1,9 +1,9 @@
-require('./inputMask');
+require('./src/inputMask');
 
 const moment = require('moment');
-const Timer = require('./timer');
-const Elements = require('./elements');
-const parseInput = require('./parseInput');
+const Timer = require('./src/timer');
+const Elements = require('./src/elements');
+const parseInput = require('./src/parseInput');
 
 timerDisplay.addEventListener('click', (e) => {
   Elements.showTimerInput();

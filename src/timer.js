@@ -1,7 +1,7 @@
 const TimerFunction = require('./TimerFunction');
 const renderDisplay = require('./renderDisplay');
 
-const audio = new Audio('../assets/Aquila.ogg');
+const audio = new Audio('./assets/Aquila.ogg');
 
 class Timer {
   constructor(){
