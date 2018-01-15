@@ -64,17 +64,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-// ipcMain.on('asynchronous-message', (event, arg) => {
-//   console.log(arg)  // prints "ping"
-//   // event.sender.send('asynchronous-reply', 'pong')
-//   if(arg === 'menu'){
-//     const {Menu, MenuItem} = electron
-
-//     const menu = new Menu()
-//     menu.append(new MenuItem({label: 'MenuItem1x', click() { console.log('item 1 clicked') }}))
-//     menu.append(new MenuItem({type: 'separator'}))
-//     menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
-//     menu.popup(win);
-//   }
-// })
