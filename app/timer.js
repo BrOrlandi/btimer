@@ -18,8 +18,9 @@ class Timer {
     renderDisplay(this.display, this.countdown);
   }
 
-  start(){
+  start(endCallback){
     this._running = true;
+    this._ennCallback = endCallback;
     this.timer.callback((time) => {
       renderDisplay(this.display, time);
       if(time <= 10000){
@@ -58,7 +59,8 @@ class Timer {
     setTimeout(() => {
       this.stop();
       this.restart();
-    },3000);
+    },2000);
+    this._ennCallback();
   }
 
 };

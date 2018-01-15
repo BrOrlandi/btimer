@@ -2,12 +2,11 @@ require('./inputMask');
 
 const moment = require('moment');
 const Timer = require('./timer');
+const Elements = require('./elements');
 const parseInput = require('./parseInput');
 
 timerDisplay.addEventListener('click', (e) => {
-  timerDisplay.classList.add('hide');
-  timerEdit.classList.remove('hide');
-  timerInput.focus();
+  Elements.showTimerInput();
   pauseTimer();
 });
 
@@ -17,33 +16,35 @@ timerInput.addEventListener('keyup', (e) => {
                     'Space' === code ||
                     'Enter' === code;
   if(isExitCode){
-    timerDisplay.classList.remove('hide');
-    timerEdit.classList.add('hide');
+    Elements.showTimerDisplay();
 
-    const inputText = e.target.value || '0';
-
-    const value = parseInput(inputText);
-    pauseTimer();
-    Timer.reset();
-    Timer.setValue(value);
-    if(value){
-      playTimer();
-    }
+    playNewValue();
   }
 });
 
-function playTimer(){
-  timerDisplay.classList.remove('hide');
-  timerEdit.classList.add('hide');
+function playNewValue(){
+  const inputText = timerInput.value || '0';
 
-  play.classList.add('hide');
-  pause.classList.remove('hide');
-  Timer.start();
+  const value = parseInput(inputText);
+  pauseTimer();
+  Timer.reset();
+  Timer.setValue(value);
+  if(value){
+    playTimer();
+  }
+}
+
+function playTimer(){
+  Elements.showTimerDisplay();
+  Elements.showPauseButton();
+
+  Timer.start(() => {
+    Elements.showPlayButton();
+  });
 }
 
 function pauseTimer(){
-  play.classList.remove('hide');
-  pause.classList.add('hide');
+  Elements.showPlayButton();
   Timer.stop();
 }
 
@@ -53,7 +54,11 @@ function restartTimer(){
 }
 
 play.addEventListener('click', (e) => {
-  playTimer();
+  if(timerEdit.classList.contains('hide')){
+    playTimer();
+    return ;
+  }
+  playNewValue();
 });
 
 pause.addEventListener('click', (e) => {
