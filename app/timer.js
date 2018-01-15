@@ -22,6 +22,9 @@ class Timer {
     this._running = true;
     this.timer.callback((time) => {
       renderDisplay(this.display, time);
+      if(time <= 10000){
+        this.display.classList.add('hurry');
+      }
       if(0 === time){
         this._end()
       }
@@ -33,6 +36,7 @@ class Timer {
   stop(){
     this.timer.stop();
     this.display.classList.remove('animate');
+    this.display.classList.remove('hurry');
     this._running = false;
   }
 

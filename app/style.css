@@ -139,7 +139,6 @@ html, body {
   }
 }
 
-
 @media (max-height : 150px) {
   .sub {
     display: none;
@@ -156,6 +155,7 @@ html, body {
   outline: none;
   border: white solid 3px;
 }
+
 #timerInput {
   border: white solid 1px;
   background-color: transparent;
@@ -181,4 +181,27 @@ html, body {
     inset 0 0 3vw #228DFF,
     inset 0 0 4vw #228DFF,
     inset 0 0 2vw #228DFF;
+}
+
+.hurry .digit{
+  animation: hurry 1s step-start infinite;
+}
+
+.hurry .tick{
+  animation: hurry 1s step-start infinite, ticker 1s infinite linear;
+}
+
+@keyframes hurry {
+  50% {
+    color: #fd9e9e;
+
+    text-shadow: 0 0 0.2vw #fd9e9e,
+      0 0 0.6vw #fd9e9e,
+      0 0 1vw #fd9e9e,
+      0 0 1.5vw #bb1f1f,
+      0 0 2.5vw #bb1f1f,
+      0 0 3vw #bb1f1f,
+      0 0 4vw #bb1f1f,
+      0 0 2vw #bb1f1f;
+  }
 }
