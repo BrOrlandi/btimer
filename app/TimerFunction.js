@@ -9,7 +9,7 @@
 */
 
 var Timer = function () {
-  var start, time, duration, callback, timer = this;
+  var start, time = 0, duration, callback, timer = this;
 
   function tick () {
     if(start===false) return;
