@@ -27,5 +27,7 @@ Report Issues and submit Pull Requests. Feel free to contribute with ideas to im
 
 ## Screenshot
 
-![Electron Timer Screenshot](./screenshot.png)
+![Electron Timer Screenshot 1](./screenshot.png)
+
+![Electron Timer Screenshot 2](./screenshot2.png)
 
