@@ -11,6 +11,7 @@
   "scripts": {
     "start": "electron .",
     "dev": "NODE_ENV=development electron .",
+    "lint": "eslint",
     "build-linux": "electron-packager . 'Electron Timer' --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icon-1024.png --prune=true --out=dist",
     "package-debian": "electron-installer-debian --src 'dist/Electron Timer-linux-x64/' --arch amd64 --config debian.json",
     "build-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icon-1024.icns --prune=true --out=dist",
@@ -23,9 +24,15 @@
     "vanilla-masker": "^1.2.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.1",
     "electron-installer-debian": "^0.7.1",
     "electron-installer-dmg": "^0.2.1",
     "electron-packager": "^10.1.0",
-    "electron-reload": "^1.2.2"
+    "electron-reload": "^1.2.2",
+    "eslint": "^4.15.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1"
   }
 }
