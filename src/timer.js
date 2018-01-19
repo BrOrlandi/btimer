@@ -4,7 +4,7 @@ const renderDisplay = require('./renderDisplay');
 const audio = new Audio('./assets/Aquila.ogg');
 
 class Timer {
-  constructor(){
+  constructor() {
     this.display = timerDisplay;
     this.timer = new TimerFunction();
     this.timer.duration(this.countdown);
@@ -12,57 +12,56 @@ class Timer {
     this.setValue(600000); // 10 minutes
   }
 
-  setValue(value){
+  setValue(value) {
     this.countdown = value;
     this.timer.duration(this.countdown);
     renderDisplay(this.display, this.countdown);
   }
 
-  start(endCallback){
+  start(endCallback) {
     this._running = true;
     this._ennCallback = endCallback;
     this.timer.callback((time) => {
       renderDisplay(this.display, time);
-      if(time <= 10000){
+      if (time <= 10000) {
         this.display.classList.add('hurry');
       }
-      if(0 === time){
-        this._end()
+      if (time === 0) {
+        this._end();
       }
     });
     this.timer.start(false);
     this.display.classList.add('animate');
   }
 
-  stop(){
+  stop() {
     this.timer.stop();
     this.display.classList.remove('animate');
     this.display.classList.remove('hurry');
     this._running = false;
   }
 
-  reset(){
+  reset() {
     this.timer.reset();
   }
 
-  restart(){
+  restart() {
     this.timer.reset(true);
     renderDisplay(this.display, this.countdown);
   }
 
-  isRunning(){
+  isRunning() {
     return this._running;
   }
 
-  _end(){
+  _end() {
     audio.play();
     setTimeout(() => {
       this.stop();
       this.restart();
-    },2000);
+    }, 2000);
     this._ennCallback();
   }
-
-};
+}
 
 module.exports = new Timer();

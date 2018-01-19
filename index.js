@@ -6,28 +6,28 @@ if (process.env.NODE_ENV === 'development') {
 const electron = require('electron');
 const path = require('path');
 const windowStateKeeper = require('electron-window-state');
-// Module to control application life.
-const {app, ipcMain} = electron;
-// Module to create native browser window.
-const {BrowserWindow} = electron;
+
+const { app } = electron;
+const { BrowserWindow } = electron;
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+
 let win;
 function createWindow() {
-
-    const mainWindowState = windowStateKeeper({
-      defaultWidth: 660,
-      defaultHeight: 165,
-      file: 'electron-timer-app-window-state.json',
-    });
+  const mainWindowState = windowStateKeeper({
+    defaultWidth: 660,
+    defaultHeight: 165,
+    file: 'electron-timer-app-window-state.json',
+  });
 
   win = new BrowserWindow({
     alwaysOnTop: true,
     titleBarStyle: 'hidden', // MacOS
-    x : mainWindowState.x,
-    y : mainWindowState.y,
-    width : mainWindowState.width,
-    height : mainWindowState.height,
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
     backgroundColor: '#113A47',
     // frame: false,
     resizable: true,
@@ -35,15 +35,9 @@ function createWindow() {
     title: 'Electron Timer',
   });
 
-  // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`);
-  // Open the DevTools.
-  // win.webContents.openDevTools();
-  // Emitted when the window is closed.
+
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     win = null;
   });
   win.setMenu(null);
@@ -53,6 +47,7 @@ function createWindow() {
   }
   mainWindowState.manage(win);
 }
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

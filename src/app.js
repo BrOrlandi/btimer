@@ -1,40 +1,10 @@
 require('./src/inputMask');
 
-const moment = require('moment');
 const Timer = require('./src/timer');
 const Elements = require('./src/elements');
 const parseInput = require('./src/parseInput');
 
-timerDisplay.addEventListener('click', (e) => {
-  Elements.showTimerInput();
-  pauseTimer();
-});
-
-timerInput.addEventListener('keyup', (e) => {
-  const code = e.code;
-  const isExitCode = 'Escape' === code ||
-                    'Space' === code ||
-                    'Enter' === code;
-  if(isExitCode){
-    Elements.showTimerDisplay();
-
-    playNewValue();
-  }
-});
-
-function playNewValue(){
-  const inputText = timerInput.value || '0';
-
-  const value = parseInput(inputText);
-  pauseTimer();
-  Timer.reset();
-  Timer.setValue(value);
-  if(value){
-    playTimer();
-  }
-}
-
-function playTimer(){
+function playTimer() {
   Elements.showTimerDisplay();
   Elements.showPauseButton();
 
@@ -43,46 +13,75 @@ function playTimer(){
   });
 }
 
-function pauseTimer(){
+function pauseTimer() {
   Elements.showPlayButton();
   Timer.stop();
 }
 
-function restartTimer(){
+function restartTimer() {
   pauseTimer();
   Timer.restart();
 }
 
-play.addEventListener('click', (e) => {
-  if(timerEdit.classList.contains('hide')){
+function playNewValue() {
+  const inputText = timerInput.value || '0';
+
+  const value = parseInput(inputText);
+  pauseTimer();
+  Timer.reset();
+  Timer.setValue(value);
+  if (value) {
     playTimer();
-    return ;
+  }
+}
+
+play.addEventListener('click', () => {
+  if (timerEdit.classList.contains('hide')) {
+    playTimer();
+    return;
   }
   playNewValue();
 });
 
-pause.addEventListener('click', (e) => {
+pause.addEventListener('click', () => {
   pauseTimer();
 });
 
-restart.addEventListener('click', (e) => {
+restart.addEventListener('click', () => {
   restartTimer();
 });
 
-document.addEventListener('keyup', (e) => {
-  const code = e.code;
-  if(e.target === timerInput) {
+document.addEventListener('keyup', (event) => {
+  const { code } = event;
+  if (event.target === timerInput) {
     return;
   }
 
-  if('Escape' === code){
+  if (code === 'Escape') {
     restartTimer();
   }
-  else if('Space' === code || 'Enter' === code){
-    if(Timer.isRunning()){
+  else if (code === 'Space' || code === 'Enter') {
+    if (Timer.isRunning()) {
       pauseTimer();
       return;
     }
     playTimer();
+  }
+});
+
+timerDisplay.addEventListener('click', () => {
+  Elements.showTimerInput();
+  pauseTimer();
+});
+
+timerInput.addEventListener('keyup', (event) => {
+  const { code } = event;
+  const isExitCode = code === 'Escape' ||
+                    code === 'Space' ||
+                    code === 'Enter';
+  if (isExitCode) {
+    Elements.showTimerDisplay();
+
+    playNewValue();
   }
 });
