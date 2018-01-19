@@ -23,13 +23,11 @@ function createWindow() {
 
   win = new BrowserWindow({
     alwaysOnTop: true,
-    titleBarStyle: 'hidden', // MacOS
     x: mainWindowState.x,
     y: mainWindowState.y,
     width: mainWindowState.width,
     height: mainWindowState.height,
     backgroundColor: '#113A47',
-    // frame: false,
     resizable: true,
     icon: path.join(__dirname, 'assets/icon-1024.png'),
     title: 'Electron Timer',
