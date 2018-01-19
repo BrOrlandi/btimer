@@ -5,6 +5,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const electron = require('electron');
 const path = require('path');
+const windowStateKeeper = require('electron-window-state');
 // Module to control application life.
 const {app, ipcMain} = electron;
 // Module to create native browser window.
@@ -13,14 +14,20 @@ const {BrowserWindow} = electron;
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
 function createWindow() {
-  // Create the browser window.
+
+    const mainWindowState = windowStateKeeper({
+      defaultWidth: 660,
+      defaultHeight: 165,
+      file: 'electron-timer-app-window-state.json',
+    });
+
   win = new BrowserWindow({
     alwaysOnTop: true,
     titleBarStyle: 'hidden', // MacOS
-    width: 660,
-    height: 165,
-    x: 120,
-    y: 120,
+    x : mainWindowState.x,
+    y : mainWindowState.y,
+    width : mainWindowState.width,
+    height : mainWindowState.height,
     backgroundColor: '#113A47',
     // frame: false,
     resizable: true,
@@ -44,6 +51,7 @@ function createWindow() {
   if (process.env.NODE_ENV === 'development') {
     win.webContents.openDevTools();
   }
+  mainWindowState.manage(win);
 }
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
