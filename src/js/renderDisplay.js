@@ -1,4 +1,4 @@
-const moment = require('moment');
+import moment from 'moment';
 
 function splitTime(time) {
   const momentTime = moment.duration(time, 'milliseconds');

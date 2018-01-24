@@ -1,4 +1,4 @@
-const VMasker = require('vanilla-masker');
+import VMasker from 'vanilla-masker';
 
 VMasker(timerInput).maskPattern('99:99');
 

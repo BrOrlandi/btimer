@@ -1,8 +1,8 @@
-require('./src/inputMask');
+import './inputMask';
 
-const Timer = require('./src/timer');
-const Elements = require('./src/elements');
-const parseInput = require('./src/parseInput');
+import Timer from './timer';
+import Elements from './elements';
+import parseInput from './parseInput';
 
 function playTimer() {
   Elements.showTimerDisplay();
@@ -59,8 +59,7 @@ document.addEventListener('keyup', (event) => {
 
   if (code === 'Escape') {
     restartTimer();
-  }
-  else if (code === 'Space' || code === 'Enter') {
+  } else if (code === 'Space' || code === 'Enter') {
     if (Timer.isRunning()) {
       pauseTimer();
       return;

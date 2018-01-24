@@ -1,6 +1,6 @@
 {
   "dest": "dist/",
-  "icon": "assets/icons/1024.png",
+  "icon": "src/assets/icons/1024.png",
   "categories": [
     "Utility"
   ],
