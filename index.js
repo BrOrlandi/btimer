@@ -29,11 +29,11 @@ function createWindow() {
     height: mainWindowState.height,
     backgroundColor: '#113A47',
     resizable: true,
-    icon: path.join(__dirname, 'assets/icon-1024.png'),
+    icon: path.join(__dirname, 'src/assets/icon-1024.png'),
     title: 'Electron Timer',
   });
 
-  win.loadURL(`file://${__dirname}/index.html`);
+  win.loadURL(`file://${__dirname}/distweb/index.html`);
 
   win.on('closed', () => {
     win = null;
