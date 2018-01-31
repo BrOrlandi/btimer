@@ -11,6 +11,7 @@ You also can learn about the tecnologies exploring the source code.
 
 ```sh
 yarn install
+yarn build-web
 yarn start
 ```
 

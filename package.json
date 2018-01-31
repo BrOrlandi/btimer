@@ -9,7 +9,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev" : "yarn watch-web & yarn dev-electron",
+    "dev": "yarn watch-web & yarn dev-electron",
     "watch-web": "parcel watch ./src/index.html -d distweb --public-url ./",
     "build-web": "parcel build ./src/index.html -d distweb --public-url ./ ",
     "start": "electron .",
