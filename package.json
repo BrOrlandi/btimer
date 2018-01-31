@@ -12,6 +12,7 @@
     "dev": "yarn watch-web & yarn dev-electron",
     "watch-web": "parcel watch ./src/index.html -d distweb --public-url ./",
     "build-web": "parcel build ./src/index.html -d distweb --public-url ./ ",
+    "dev-web": "parcel serve ./src/index.html -o -d distweb",
     "start": "electron .",
     "dev-electron": "NODE_ENV=development electron .",
     "lint": "eslint index.js ./src",
