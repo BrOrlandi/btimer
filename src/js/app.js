@@ -4,6 +4,15 @@ import Timer from './timer';
 import Elements from './elements';
 import parseInput from './parseInput';
 
+import {
+  timerInput,
+  timerEdit,
+  timerDisplay,
+  play,
+  pause,
+  restart,
+} from './definitions';
+
 function playTimer() {
   Elements.showTimerDisplay();
   Elements.showPauseButton();

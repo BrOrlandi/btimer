@@ -3,6 +3,8 @@ import renderDisplay from './renderDisplay';
 
 import alarmSound from '../assets/Aquila.ogg';
 
+import { timerDisplay } from './definitions';
+
 const audio = new Audio(alarmSound);
 
 class Timer {

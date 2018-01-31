@@ -1,4 +1,12 @@
 
+import {
+  timerInput,
+  timerEdit,
+  timerDisplay,
+  play,
+  pause,
+} from './definitions';
+
 class Elements {
   static showPlayButton() {
     play.classList.remove('hide');

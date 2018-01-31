@@ -1,5 +1,8 @@
 import VMasker from 'vanilla-masker';
 
+
+import { timerInput } from './definitions';
+
 VMasker(timerInput).maskPattern('99:99');
 
 function dynamicMask(e) {
