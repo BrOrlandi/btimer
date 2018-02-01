@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "yarn watch-web & yarn dev-electron",
     "watch-web": "parcel watch ./src/index.html -d distweb --public-url ./",
-    "build-web": "parcel build ./src/index.html -d distweb --public-url ./ ",
+    "build-web": "rm -rf distweb && parcel build ./src/index.html -d distweb --public-url ./ ",
     "dev-web": "parcel serve ./src/index.html -o -d distweb",
     "start": "electron .",
     "dev-electron": "NODE_ENV=development electron .",
@@ -19,7 +19,8 @@
     "build-linux": "yarn build-web && electron-packager . 'Electron Timer' --overwrite --asar=true --platform=linux --arch=x64 --icon=src/assets/icon-1024.png --prune=true --out=dist",
     "package-debian": "electron-installer-debian --src 'dist/Electron Timer-linux-x64/' --arch amd64 --config debian.json",
     "build-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/assets/icon-1024.icns --prune=true --out=dist",
-    "package-mac": "electron-installer-dmg ./dist/Electron\\ Timer-darwin-x64/Electron\\ Timer.app electron-timer-app"
+    "package-mac": "electron-installer-dmg ./dist/Electron\\ Timer-darwin-x64/Electron\\ Timer.app electron-timer-app",
+    "ghpages": "ghpages -p distweb"
   },
   "dependencies": {
     "electron": "^1.7.9",
@@ -39,6 +40,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
+    "ghpages": "^0.0.10",
     "parcel-bundler": "^1.5.0"
   }
 }
