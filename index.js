@@ -18,7 +18,7 @@ function createWindow() {
   const mainWindowState = windowStateKeeper({
     defaultWidth: 660,
     defaultHeight: 165,
-    file: 'electron-timer-app-window-state.json',
+    file: 'btimer-window-state.json',
   });
 
   win = new BrowserWindow({
@@ -30,7 +30,7 @@ function createWindow() {
     backgroundColor: '#113A47',
     resizable: true,
     icon: path.join(__dirname, 'src/assets/icon-1024.png'),
-    title: 'Electron Timer',
+    title: 'BTimer',
   });
 
   win.loadURL(`file://${__dirname}/distweb/index.html`);

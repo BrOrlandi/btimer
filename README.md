@@ -1,11 +1,11 @@
-# :alarm_clock: Electron Timer App
+# :alarm_clock: BTimer
 
-This is a timer made with Electron.
+This is a timer made with Web Technologies to work with all plataforms: web, mobile and desktop with node electron.
 
 The Electron layer is used only to make it available as a Desktop application.  
 You can use it as your Pomodoro Timer. :tomato:  
 Ideal to be used in Dojos and Pair Programming. :shipit:   
-You also can learn about the tecnologies exploring the source code.
+You also can learn about the tecnologies exploring the source code. :books:
 
 ## Running
 
@@ -28,7 +28,7 @@ Report Issues and submit Pull Requests. Feel free to contribute with ideas to im
 
 ## Screenshot
 
-![Electron Timer Screenshot 1](./screenshot.png)
+![BTimer Screenshot 1](./screenshot.png)
 
-![Electron Timer Screenshot 2](./screenshot2.png)
+![BTimer Screenshot 2](./screenshot2.png)
 

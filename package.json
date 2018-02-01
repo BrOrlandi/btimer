@@ -1,10 +1,10 @@
 {
-  "name": "electron-timer-app",
-  "productName": "Electron Timer",
+  "name": "btimer",
+  "productName": "BTimer",
   "version": "1.0.0",
-  "description": "A simple clock made with electron",
+  "description": "A simple timer for web, mobile and desktop.",
   "main": "index.js",
-  "repository": "git@github.com:BrOrlandi/electron-timer-app.git",
+  "repository": "git@github.com:BrOrlandi/BTimer.git",
   "author": "BrOrlandi",
   "license": "MIT",
   "private": false,
@@ -16,10 +16,10 @@
     "start": "electron .",
     "dev-electron": "NODE_ENV=development electron .",
     "lint": "eslint index.js ./src",
-    "build-linux": "yarn build-web && electron-packager . 'Electron Timer' --overwrite --asar=true --platform=linux --arch=x64 --icon=src/assets/icon-1024.png --prune=true --out=dist",
-    "package-debian": "electron-installer-debian --src 'dist/Electron Timer-linux-x64/' --arch amd64 --config debian.json",
+    "build-linux": "yarn build-web && electron-packager . 'BTimer' --overwrite --asar=true --platform=linux --arch=x64 --icon=src/assets/icon-1024.png --prune=true --out=dist",
+    "package-debian": "electron-installer-debian --src 'dist/BTimer-linux-x64/' --arch amd64 --config debian.json",
     "build-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/assets/icon-1024.icns --prune=true --out=dist",
-    "package-mac": "electron-installer-dmg ./dist/Electron\\ Timer-darwin-x64/Electron\\ Timer.app electron-timer-app",
+    "package-mac": "electron-installer-dmg ./dist/BTimer-darwin-x64/BTimer.app btimer",
     "ghpages": "ghpages -p distweb"
   },
   "dependencies": {
