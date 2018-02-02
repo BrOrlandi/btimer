@@ -205,3 +205,26 @@ html, body {
       0 0 2vw #bb1f1f;
   }
 }
+
+.isElectron header {
+  display: none;
+}
+
+
+.isWeb header {
+  background-color: #0b303c;
+  color: white;
+  width: 100vw;
+  text-align: center;
+  font-size: 30px;
+  padding: 10px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 0.2vw #fff,
+  0 0 0.6vw #fff,
+  0 0 1vw #fff,
+  0 0 1vw #228DFF,
+  0 0 2vw #228DFF,
+  0 0 2vw #228DFF,
+  0 0 2vw #228DFF,
+  0 0 2vw #228DFF;
+}
