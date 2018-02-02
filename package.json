@@ -18,7 +18,7 @@
     "lint": "eslint index.js ./src",
     "build-linux": "yarn build-web && electron-packager . 'BTimer' --overwrite --asar=true --platform=linux --arch=x64 --icon=src/assets/clock-1024.png --prune=true --out=dist",
     "package-debian": "electron-installer-debian --src 'dist/BTimer-linux-x64/' --arch amd64 --config debian.json",
-    "build-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/assets/clock-1024.icns --prune=true --out=dist",
+    "build-mac": "yarn build-web && electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/assets/clock-1024.icns --prune=true --out=dist",
     "package-mac": "electron-installer-dmg ./dist/BTimer-darwin-x64/BTimer.app btimer",
     "deploy": "yarn build-web && ghpages -p distweb"
   },
