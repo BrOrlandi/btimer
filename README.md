@@ -1,3 +1,7 @@
+<div style="text-align:center">
+<img src="./src/assets/logobanner.png" alt="BTimer Logo" style="width: 500px"/>
+</div>
+
 # :alarm_clock: BTimer
 
 This is a timer made with Web Technologies to work with all plataforms: web, mobile and desktop with node electron.

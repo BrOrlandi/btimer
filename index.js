@@ -29,7 +29,7 @@ function createWindow() {
     height: mainWindowState.height,
     backgroundColor: '#113A47',
     resizable: true,
-    icon: path.join(__dirname, 'src/assets/icon-1024.png'),
+    icon: path.join(__dirname, 'src/assets/clock-1024.png'),
     title: 'BTimer',
   });
 
