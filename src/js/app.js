@@ -5,6 +5,8 @@ import Elements from './elements';
 import parseInput from './parseInput';
 import isElectron from './isElectron';
 
+import '../css/style.styl';
+
 import {
   timerInput,
   timerEdit,

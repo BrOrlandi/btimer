@@ -41,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "ghpages": "^0.0.10",
-    "parcel-bundler": "^1.5.0"
+    "parcel-bundler": "^1.5.0",
+    "stylus": "^0.54.5"
   }
 }
