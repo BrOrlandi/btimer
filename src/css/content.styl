@@ -1,0 +1,98 @@
+
+@import './mediaqueries.styl';
+
+html, body {
+  margin: 0;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#timerDisplay {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  padding-top: 3.2vw;
+  cursor: pointer;
+
+  span {
+    display: inline-block;
+    width: 10vw;
+    text-align: center;
+  }
+
+}
+
+.timerFont {
+  user-select: none;
+  font-size: 10vw;
+}
+
+.animate .tick {
+  animation: ticker 1s infinite linear;
+}
+
+@keyframes ticker {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.buttons {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  letter-spacing: 3px
+
+  div {
+    flex: 1;
+    flex-grow: 1;
+    padding: 5vh 1.5vw;
+    text-align: center;
+    cursor: pointer;
+
+    .title {
+      display: block;
+      font-size: 12vh;
+    }
+
+    .sub {
+      display: block;
+      margin-top: 3px;
+      font-size: 5vh;
+    }
+   }
+
+  @media $portrait {
+    flex-direction: column;
+
+    div {
+      padding: 5vh 1.5vw;
+
+      .title {
+        font-size: 10vw;
+      }
+
+      .sub {
+        display: none;
+      }
+    }
+
+  }
+
+}
