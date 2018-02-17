@@ -4,6 +4,7 @@
 html, body {
   margin: 0;
   height: 100vh;
+  background-color: white;
 }
 
 .container {
@@ -34,24 +35,6 @@ html, body {
   font-size: 10vw;
 }
 
-.animate .tick {
-  animation: ticker 1s infinite linear;
-}
-
-@keyframes ticker {
-  0% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
 .buttons {
   user-select: none;
   display: flex;
@@ -75,6 +58,10 @@ html, body {
       display: block;
       margin-top: 3px;
       font-size: 5vh;
+
+      @media $height150 {
+        display: none;
+      }
     }
    }
 
@@ -94,5 +81,35 @@ html, body {
     }
 
   }
+}
 
+.hide {
+  display: none !important;
+}
+
+#timerEdit {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+#timerInput {
+  text-align: center;
+  width: 66vw;
+}
+
+.isElectron {
+  header {
+    display: none;
+  }
+}
+
+// exclusive web style
+.isWeb {
+  header {
+    width: 100vw;
+    text-align: center;
+    font-size: 30px;
+    padding: 15px 0px 10px;
+  }
 }

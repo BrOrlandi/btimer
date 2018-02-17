@@ -1,7 +1,3 @@
-// @import './orbitron-font.css';
-
-
-
 body.orbitron-theme {
   font-family: 'Orbitron', -apple-system, 'Helvetica Neue', Helvetica, sans-serif;
   background: #113A47;
@@ -22,14 +18,130 @@ body.orbitron-theme {
       0 0 2vw #228DFF;
       /* text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 15px #228DFF, 0 0 25px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF; */
   }
-}
 
-.buttons {
-  div {
-    color: #D7ECFF;
+  .buttons {
+    div {
+      color: #D7ECFF;
 
-    .sub {
-      color: #a9bac9;
+      .sub {
+        color: #a9bac9;
+      }
     }
   }
+
+  // Buton Colors
+  #play {
+    background-color: #19420c;
+  }
+
+  #play:hover, #play:focus, #play:active {
+    background-color: #286c14;
+  }
+
+  #pause {
+    background-color: #4a1010;
+  }
+
+  #pause:hover, #pause:focus, #pause:active {
+    background-color: #751a1a;
+  }
+
+  #restart {
+    background-color: #0b303c;
+  }
+
+  #restart:hover, #restart:focus, #restart:active {
+    background-color: #135267;
+  }
+
+
+  // Tick animation
+  .animate .tick {
+    animation: ticker 1s infinite linear;
+  }
+
+  @keyframes ticker {
+    0% {
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  #timerInput {
+    border: white solid 1px;
+    background-color: transparent;
+    line-height: 1.6em;
+    padding-top: 0.25em;
+    letter-spacing: 2vw;
+
+    box-shadow: 0 0 0.2vw #fff,
+      0 0 0.6vw #fff,
+      0 0 1vw #fff,
+      0 0 1.5vw #228DFF,
+      0 0 2.5vw #228DFF,
+      0 0 3vw #228DFF,
+      0 0 4vw #228DFF,
+      0 0 2vw #228DFF,
+      inset 0 0 0.2vw #fff,
+      inset 0 0 0.6vw #fff,
+      inset 0 0 1vw #fff,
+      inset 0 0 1.5vw #228DFF,
+      inset 0 0 2.5vw #228DFF,
+      inset 0 0 3vw #228DFF,
+      inset 0 0 4vw #228DFF,
+      inset 0 0 2vw #228DFF;
+
+    &:focus {
+      outline: none;
+      border: white solid 3px;
+    }
+  }
+
+  .hurry .digit{
+    animation: hurry 1s step-start infinite;
+  }
+
+  .hurry .tick{
+    animation: hurry 1s step-start infinite, ticker 1s infinite linear;
+  }
+
+  @keyframes hurry {
+    50% {
+      color: #fd9e9e;
+
+      text-shadow: 0 0 0.2vw #fd9e9e,
+        0 0 0.6vw #fd9e9e,
+        0 0 1vw #fd9e9e,
+        0 0 1.5vw #bb1f1f,
+        0 0 2.5vw #bb1f1f,
+        0 0 3vw #bb1f1f,
+        0 0 4vw #bb1f1f,
+        0 0 2vw #bb1f1f;
+    }
+  }
+
+  // exclusive web style
+  &.isWeb {
+    header {
+      background-color: #0b303c;
+      color: white;
+      letter-spacing: 3px;
+      text-shadow: 0 0 0.2vw #fff,
+      0 0 0.6vw #fff,
+      0 0 1vw #fff,
+      0 0 1vw #228DFF,
+      0 0 2vw #228DFF,
+      0 0 2vw #228DFF,
+      0 0 2vw #228DFF,
+      0 0 2vw #228DFF;
+    }
+  }
+
 }
