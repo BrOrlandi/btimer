@@ -1,12 +1,5 @@
-/** 
- * TimerFunction Class
- * - utilises animation frames (with a fallback to setTimeout when using the polyfill, below)
- * - returns remaining (or running) time
- * - pass a callback [fn], with an optional duration [ms] and autotart [bool], to the constructor or 'init' method eg. new Timer(foo, 1000) *or* (new Timer()).init(foo, 0, true)
- * - for uniform x-browser support combine with the requestAnimationFrame polyfill from Erik Möller, et. al. [https://github.com/darius/requestAnimationFrame]
-  */
-class TimerFunction {
 
+class TimerFunction {
   /**
    * Creates a new timer
    * @param {function} callback - The callback method called on each tick
@@ -20,18 +13,18 @@ class TimerFunction {
     this.durationAttr = null;
     this.callbackAttr = null;
 
-    if(arguments.length) {
+    if (arguments.length) {
       this.callback(callback);
       this.duration(duration);
       this.reset();
-      if(autostart) this.start();
+      if (autostart) this.start();
     }
   }
 
   /** Private method that run on each animationFrame */
   _tick() {
-    if(this.startAttr === false) return;
-    this.timeAttr = this.timeAttr + this._now() - this.startAttr;
+    if (this.startAttr === false) return;
+    this.timeAttr = this.timeAttr + (this._now() - this.startAttr);
     this.stop();
     this.callbackAttr(this.time());
     this.start();
@@ -47,53 +40,56 @@ class TimerFunction {
    * @param {boolean} reset - Controls whether the timer is going to restart or not
    */
   start(reset /* true to restart */) {
-    if(reset) this.reset(true);
-    if(!this.callbackAttr || this.startAttr || this.timeAttr > this.durationAttr) return;
+    if (reset) this.reset(true);
+    if (!this.callbackAttr || this.startAttr || this.timeAttr > this.durationAttr) return;
     this.startAttr = this._now();
     requestAnimationFrame(() => {
-      this._tick()
+      this._tick();
     });
-  };
+  }
 
   /** Stop the counter */
   stop() {
     this.startAttr = false;
-  };
+  }
 
   /**
    * Resets the counter
    * @param {boolean} stop - Controls whether to stop the counter or not
    */
   reset(stop) {
-    if(stop) this.stop();
+    if (stop) this.stop();
     this.timeAttr = 0;
-  };
+  }
 
   /**
    * Sets the duration
    * @param {integer} ms - The number of miliseconds the timer is goint to count
    */
   duration(ms) {
-    if(ms) this.durationAttr = ms;
+    if (ms) this.durationAttr = ms;
     return this.durationAttr;
-  };
+  }
 
   /**
    * Sets the callback function
    * @param {function} fn - The callback function that is going to run on each tick
    */
   callback(fn) {
-    if(typeof fn === "function") this.callbackAttr = fn;
+    if (typeof fn === 'function') this.callbackAttr = fn;
     return fn;
-  };
+  }
 
   /**
-   * 
-   * @param {boolean} elapsed - Controls whether the timer is going to show the elapsed or remaining time
+   *
+   * @param {boolean} elapsed - Timer is going to show the elapsed or remaining time
    */
   time(elapsed /* true for elapsed instead of remaining */) {
-    return !!elapsed || !this.durationAttr  ? this.timeAttr : Math.max(0, this.durationAttr - this.timeAttr);
-  };
+    return !!elapsed ||
+        !this.durationAttr ?
+      this.timeAttr :
+      Math.max(0, this.durationAttr - this.timeAttr);
+  }
 }
 
 module.exports = TimerFunction;
