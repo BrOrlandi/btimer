@@ -14,6 +14,7 @@ class Timer {
     this.timer.duration(this.countdown);
     this._running = false;
     this.setValue(600000); // 10 minutes
+    this.endTimeout = null;
   }
 
   setValue(value) {
@@ -25,20 +26,28 @@ class Timer {
   start(endCallback) {
     this._running = true;
     this._endCallback = endCallback;
+
     this.timer.callback((time) => {
       renderDisplay(this.display, time);
       if (time <= 10000) {
         this.display.classList.add('hurry');
       }
-      if (time === 0) {
-        this._end();
-      }
     });
+
+    this.endTimeout = setTimeout(() => {
+      this._end();
+    }, this.countdown);
+
     this.timer.start(false);
     this.display.classList.add('animate');
   }
 
   stop() {
+    if (this.endTimeout) {
+      clearTimeout(this.endTimeout);
+      this.endTimeout = null;
+    }
+
     this.timer.stop();
     this.display.classList.remove('animate');
     this.display.classList.remove('hurry');
