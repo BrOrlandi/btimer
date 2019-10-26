@@ -1,11 +1,10 @@
-import './inputMask';
+import "./inputMask";
 
-import Timer from './timer';
-import Elements from './elements';
-import parseInput from './parseInput';
-import isElectron from './isElectron';
+import Timer from "./timer";
+import Elements from "./elements";
+import parseInput from "./parseInput";
 
-import '../css/main.styl';
+import "../css/main.styl";
 
 import {
   timerInput,
@@ -14,14 +13,8 @@ import {
   play,
   pause,
   restart,
-  body,
-} from './definitions';
-
-document.addEventListener('DOMContentLoaded', () => {
-  const isElectronEnvironment = isElectron();
-  const envClass = isElectronEnvironment ? 'isElectron' : 'isWeb';
-  body.classList.add(envClass);
-});
+  body
+} from "./definitions";
 
 function playTimer() {
   Elements.showTimerDisplay();
@@ -43,7 +36,7 @@ function restartTimer() {
 }
 
 function playNewValue() {
-  const inputText = timerInput.value || '0';
+  const inputText = timerInput.value || "0";
 
   const value = parseInput(inputText);
   pauseTimer();
@@ -54,31 +47,31 @@ function playNewValue() {
   }
 }
 
-play.addEventListener('click', () => {
-  if (timerEdit.classList.contains('hide')) {
+play.addEventListener("click", () => {
+  if (timerEdit.classList.contains("hide")) {
     playTimer();
     return;
   }
   playNewValue();
 });
 
-pause.addEventListener('click', () => {
+pause.addEventListener("click", () => {
   pauseTimer();
 });
 
-restart.addEventListener('click', () => {
+restart.addEventListener("click", () => {
   restartTimer();
 });
 
-document.addEventListener('keyup', (event) => {
+document.addEventListener("keyup", event => {
   const { code } = event;
   if (event.target === timerInput) {
     return;
   }
 
-  if (code === 'Escape') {
+  if (code === "Escape") {
     restartTimer();
-  } else if (code === 'Space' || code === 'Enter') {
+  } else if (code === "Space" || code === "Enter") {
     if (Timer.isRunning()) {
       pauseTimer();
       return;
@@ -87,16 +80,14 @@ document.addEventListener('keyup', (event) => {
   }
 });
 
-timerDisplay.addEventListener('click', () => {
+timerDisplay.addEventListener("click", () => {
   Elements.showTimerInput();
   pauseTimer();
 });
 
-timerInput.addEventListener('keyup', (event) => {
+timerInput.addEventListener("keyup", event => {
   const { code } = event;
-  const isExitCode = code === 'Escape' ||
-                    code === 'Space' ||
-                    code === 'Enter';
+  const isExitCode = code === "Escape" || code === "Space" || code === "Enter";
   if (isExitCode) {
     Elements.showTimerDisplay();
 
