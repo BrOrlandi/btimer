@@ -15,6 +15,8 @@ class Timer {
     this._running = false;
     this.setValue(600000); // 10 minutes
     this.endTimeout = null;
+    this._autoRestart = false;
+    this._autoRestartTimeout = null;
   }
 
   setValue(value) {
@@ -23,9 +25,15 @@ class Timer {
     renderDisplay(this.display, this.countdown);
   }
 
+  toggleAutoRestart() {
+    this._autoRestart = !this._autoRestart;
+  }
+
   start(endCallback) {
     this._running = true;
-    this._endCallback = endCallback;
+    if (typeof endCallback === 'function') {
+      this._endCallback = endCallback;
+    }
 
     this.timer.callback((time) => {
       renderDisplay(this.display, time);
@@ -58,7 +66,10 @@ class Timer {
     this.timer.reset();
   }
 
-  restart() {
+  restart(cancelAutoRestart) {
+    if (cancelAutoRestart) {
+      clearTimeout(this._autoRestartTimeout);
+    }
     this.timer.reset(true);
     renderDisplay(this.display, this.countdown);
   }
@@ -73,7 +84,17 @@ class Timer {
       this.stop();
       this.restart();
     }, 2000);
-    this._endCallback();
+
+
+    if (!this._autoRestart) {
+      this._endCallback();
+
+      return;
+    }
+
+    this._autoRestartTimeout = setTimeout(() => {
+      this.start();
+    }, 3000);
   }
 }
 
