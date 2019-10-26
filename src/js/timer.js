@@ -31,9 +31,7 @@ class Timer {
 
   start(endCallback) {
     this._running = true;
-    if (typeof endCallback === 'function') {
-      this._endCallback = endCallback;
-    }
+    this._endCallback = endCallback;
 
     this.timer.callback((time) => {
       renderDisplay(this.display, time);
@@ -85,7 +83,6 @@ class Timer {
       this.restart();
     }, 2000);
 
-
     if (!this._autoRestart) {
       this._endCallback();
 
@@ -93,7 +90,7 @@ class Timer {
     }
 
     this._autoRestartTimeout = setTimeout(() => {
-      this.start();
+      this.start(null);
     }, 3000);
   }
 }
