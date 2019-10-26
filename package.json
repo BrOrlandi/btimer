@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "description": "A simple timer for web, mobile and desktop.",
   "main": "index.js",
-  "repository": "git@github.com:BrOrlandi/BTimer.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/BrOrlandi/BTimer.git"
+  },
   "author": "BrOrlandi",
   "license": "MIT",
   "private": false,
@@ -20,7 +23,7 @@
     "package-debian": "electron-installer-debian --src 'dist/BTimer-linux-x64/' --arch amd64 --config debian.json",
     "build-mac": "yarn build-web && electron-packager . --overwrite --platform=darwin --arch=x64 --icon=src/assets/clock-1024.icns --prune=true --out=dist",
     "package-mac": "electron-installer-dmg ./dist/BTimer-darwin-x64/BTimer.app btimer",
-    "deploy": "yarn build-web && ghpages -p distweb"
+    "deploy": "npm run build-web && ghpages -p distweb"
   },
   "dependencies": {
     "electron": "^1.7.9",
@@ -46,5 +49,9 @@
     "parcel-bundler": "^1.5.0",
     "stylint": "^1.5.9",
     "stylus": "^0.54.5"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/BrOrlandi/BTimer/issues"
+  },
+  "homepage": "https://github.com/BrOrlandi/BTimer#readme"
 }
