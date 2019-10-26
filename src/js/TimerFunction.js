@@ -29,7 +29,7 @@ class TimerFunction {
   /** Private method that run on each animationFrame */
   _tick() {
     if (this.startAttr === false) return;
-    this.timeAttr = this.timeAttr + (this._now() - this.startAttr);
+    this.timeAttr = this.timeAttr + (TimerFunction._now() - this.startAttr);
     this.stop();
     this.callbackAttr(this.time());
     this.start();
@@ -42,7 +42,7 @@ class TimerFunction {
   start(reset /* true to restart */) {
     if (reset) this.reset(true);
     if (!this.callbackAttr || this.startAttr || this.timeAttr > this.durationAttr) return;
-    this.startAttr = this._now();
+    this.startAttr = TimerFunction._now();
     requestAnimationFrame(() => {
       this._tick();
     });
