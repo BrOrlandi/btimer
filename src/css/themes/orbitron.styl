@@ -3,20 +3,50 @@ body.orbitron-theme {
   background: #113A47;
 }
 
-.orbitron-theme {
+text-glow(color1, color2) {
+  text-shadow: 0 0 0.2vw color1,
+    0 0 0.6vw color1,
+    0 0 1vw color1,
+    0 0 1vw color2,
+    0 0 2vw color2,
+    0 0 2vw color2,
+    0 0 2vw color2,
+    0 0 2vw color2;
+}
 
+text-glow-normal() {
+  color: #D7ECFF;
+  text-glow(#fff, #228DFF)
+}
+
+text-glow-hurry() {
+  color: #fd9e9e;
+  text-glow(#fd9e9e, #bb1f1f)
+}
+
+box-glow() {
+  box-shadow: 0 0 0.2vw #fff,
+    0 0 0.6vw #fff,
+    0 0 1vw #fff,
+    0 0 1.5vw #228DFF,
+    0 0 2.5vw #228DFF,
+    0 0 3vw #228DFF,
+    0 0 4vw #228DFF,
+    0 0 2vw #228DFF,
+    inset 0 0 0.2vw #fff,
+    inset 0 0 0.6vw #fff,
+    inset 0 0 1vw #fff,
+    inset 0 0 1.5vw #228DFF,
+    inset 0 0 2.5vw #228DFF,
+    inset 0 0 3vw #228DFF,
+    inset 0 0 4vw #228DFF,
+    inset 0 0 2vw #228DFF;
+}
+
+.orbitron-theme {
   .timerFont {
     font-family: 'Orbitron', sans-serif;
-    color: #D7ECFF;
-    text-shadow: 0 0 0.2vw #fff,
-      0 0 0.6vw #fff,
-      0 0 1vw #fff,
-      0 0 1.5vw #228DFF,
-      0 0 2.5vw #228DFF,
-      0 0 3vw #228DFF,
-      0 0 4vw #228DFF,
-      0 0 2vw #228DFF;
-      /* text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 10px #fff, 0 0 15px #228DFF, 0 0 25px #228DFF, 0 0 30px #228DFF, 0 0 40px #228DFF, 0 0 50px #228DFF; */
+    text-glow-normal();
   }
 
   .buttons {
@@ -74,29 +104,14 @@ body.orbitron-theme {
     }
   }
 
-  #timerInput, #timerOptions input {
+  #timerInput {
     border: white solid 1px;
     background-color: transparent;
     line-height: 1.6em;
     padding-top: 0.25em;
     letter-spacing: 2vw;
 
-    box-shadow: 0 0 0.2vw #fff,
-      0 0 0.6vw #fff,
-      0 0 1vw #fff,
-      0 0 1.5vw #228DFF,
-      0 0 2.5vw #228DFF,
-      0 0 3vw #228DFF,
-      0 0 4vw #228DFF,
-      0 0 2vw #228DFF,
-      inset 0 0 0.2vw #fff,
-      inset 0 0 0.6vw #fff,
-      inset 0 0 1vw #fff,
-      inset 0 0 1.5vw #228DFF,
-      inset 0 0 2.5vw #228DFF,
-      inset 0 0 3vw #228DFF,
-      inset 0 0 4vw #228DFF,
-      inset 0 0 2vw #228DFF;
+    box-glow();
 
     &:focus {
       outline: none;
@@ -105,18 +120,19 @@ body.orbitron-theme {
   }
 
   #timerOptions {
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      text-align: center;
-      background: #191919;
-      border-radius: 40%;
-      appearance: none;
-      margin-top: 10px;
+    label {
+      padding-top: 1em;
+      color: #fff;
+      font-size: 2em;
+      // text-glow-normal();
+      display: flex;
+      align-items: center;
     }
 
-    label {
-      color: #fff;
+    input {
+      margin-right: 2em;
+      margin-bottom: 0.8em;
+      transform: scale(2);
     }
   }
 
@@ -130,16 +146,7 @@ body.orbitron-theme {
 
   @keyframes hurry {
     50% {
-      color: #fd9e9e;
-
-      text-shadow: 0 0 0.2vw #fd9e9e,
-        0 0 0.6vw #fd9e9e,
-        0 0 1vw #fd9e9e,
-        0 0 1.5vw #bb1f1f,
-        0 0 2.5vw #bb1f1f,
-        0 0 3vw #bb1f1f,
-        0 0 4vw #bb1f1f,
-        0 0 2vw #bb1f1f;
+      text-glow-hurry();
     }
   }
 
