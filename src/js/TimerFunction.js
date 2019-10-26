@@ -21,6 +21,11 @@ class TimerFunction {
     }
   }
 
+  /** Private method that return the current timestamp */
+  static _now() {
+    return window.performance ? window.performance.now() : Date.now();
+  }
+
   /** Private method that run on each animationFrame */
   _tick() {
     if (this.startAttr === false) return;
@@ -28,11 +33,6 @@ class TimerFunction {
     this.stop();
     this.callbackAttr(this.time());
     this.start();
-  }
-
-  /** Private method that return the current timestamp */
-  _now() {
-    return window.performance ? window.performance.now() : Date.now();
   }
 
   /**
@@ -85,10 +85,10 @@ class TimerFunction {
    * @param {boolean} elapsed - Timer is going to show the elapsed or remaining time
    */
   time(elapsed /* true for elapsed instead of remaining */) {
-    return !!elapsed ||
-        !this.durationAttr ?
-      this.timeAttr :
-      Math.max(0, this.durationAttr - this.timeAttr);
+    return !!elapsed
+        || !this.durationAttr
+      ? this.timeAttr
+      : Math.max(0, this.durationAttr - this.timeAttr);
   }
 }
 
