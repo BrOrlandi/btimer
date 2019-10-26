@@ -19,7 +19,7 @@ yarn start
 
 ## Developing
 
-You can run this project and develop using an Online IDE called **[Gitpod](https://gitpod.io)**
+You can run this project and develop using an Online IDE called **[Gitpod](https://gitpod.io)** just putting gitpod.io/# before the url of this repository or:
 
 ```sh
 yarn install
