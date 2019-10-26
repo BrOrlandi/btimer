@@ -10,6 +10,7 @@ import {
   timerInput,
   timerEdit,
   timerDisplay,
+  timerAutoRestart,
   play,
   pause,
   restart,
@@ -31,7 +32,7 @@ function pauseTimer() {
 
 function restartTimer() {
   pauseTimer();
-  Timer.restart();
+  Timer.restart(true);
 }
 
 function playNewValue() {
@@ -60,6 +61,10 @@ pause.addEventListener('click', () => {
 
 restart.addEventListener('click', () => {
   restartTimer();
+});
+
+timerAutoRestart.addEventListener('change', () => {
+  Timer.toggleAutoRestart();
 });
 
 document.addEventListener('keyup', (event) => {

@@ -74,7 +74,7 @@ body.orbitron-theme {
     }
   }
 
-  #timerInput {
+  #timerInput, #timerOptions input {
     border: white solid 1px;
     background-color: transparent;
     line-height: 1.6em;
@@ -101,6 +101,22 @@ body.orbitron-theme {
     &:focus {
       outline: none;
       border: white solid 3px;
+    }
+  }
+
+  #timerOptions {
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      background: #191919;
+      border-radius: 40%;
+      appearance: none;
+      margin-top: 10px;
+    }
+
+    label {
+      color: #fff;
     }
   }
 
