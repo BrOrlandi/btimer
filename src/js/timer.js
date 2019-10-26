@@ -1,9 +1,9 @@
-import TimerFunction from "./TimerFunction";
-import renderDisplay from "./renderDisplay";
+import TimerFunction from './TimerFunction';
+import renderDisplay from './renderDisplay';
 
-import alarmSound from "../assets/Aquila.ogg";
+import alarmSound from '../assets/Aquila.ogg';
 
-import { timerDisplay } from "./definitions";
+import { timerDisplay } from './definitions';
 
 const audio = new Audio(alarmSound);
 
@@ -27,10 +27,10 @@ class Timer {
     this._running = true;
     this._endCallback = endCallback;
 
-    this.timer.callback(time => {
+    this.timer.callback((time) => {
       renderDisplay(this.display, time);
       if (time <= 10000) {
-        this.display.classList.add("hurry");
+        this.display.classList.add('hurry');
       }
     });
 
@@ -39,7 +39,7 @@ class Timer {
     }, this.countdown);
 
     this.timer.start(false);
-    this.display.classList.add("animate");
+    this.display.classList.add('animate');
   }
 
   stop() {
@@ -49,8 +49,8 @@ class Timer {
     }
 
     this.timer.stop();
-    this.display.classList.remove("animate");
-    this.display.classList.remove("hurry");
+    this.display.classList.remove('animate');
+    this.display.classList.remove('hurry');
     this._running = false;
   }
 

@@ -1,13 +1,13 @@
-import VMasker from "vanilla-masker";
+import VMasker from 'vanilla-masker';
 
-import { timerInput } from "./definitions";
+import { timerInput } from './definitions';
 
-VMasker(timerInput).maskPattern("99:99");
+VMasker(timerInput).maskPattern('99:99');
 
 function dynamicMask(e) {
-  const masks = ["99:99", "9:99"];
+  const masks = ['99:99', '9:99'];
   const input = e.target;
-  const value = input.value.replace(/\D/g, "");
+  const value = input.value.replace(/\D/g, '');
   const maskIndex = value.trim().length === 3 ? 1 : 0;
   VMasker(input).unMask();
   VMasker(input).maskPattern(masks[maskIndex]);
@@ -15,4 +15,4 @@ function dynamicMask(e) {
   input.value = VMasker.toPattern(value, masks[maskIndex]);
 }
 
-timerInput.addEventListener("input", dynamicMask, false);
+timerInput.addEventListener('input', dynamicMask, false);
