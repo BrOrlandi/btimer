@@ -20,11 +20,13 @@
     "vanilla-masker": "^1.2.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.1",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^4.15.0",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.5.1",
     "ghpages": "^0.0.10",
