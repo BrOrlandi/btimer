@@ -12,7 +12,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "npm run dev",
+    "start": "npm run watch",
     "watch": "parcel watch ./src/index.html -d dist --public-url ./",
     "build": "rm -rf dist && parcel build ./src/index.html -d dist --public-url ./ ",
     "dev": "parcel serve ./src/index.html -o -d dist",
