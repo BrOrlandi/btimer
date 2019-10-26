@@ -3,7 +3,6 @@ import './inputMask';
 import Timer from './timer';
 import Elements from './elements';
 import parseInput from './parseInput';
-import isElectron from './isElectron';
 
 import '../css/main.styl';
 
@@ -14,14 +13,7 @@ import {
   play,
   pause,
   restart,
-  body,
 } from './definitions';
-
-document.addEventListener('DOMContentLoaded', () => {
-  const isElectronEnvironment = isElectron();
-  const envClass = isElectronEnvironment ? 'isElectron' : 'isWeb';
-  body.classList.add(envClass);
-});
 
 function playTimer() {
   Elements.showTimerDisplay();
@@ -94,9 +86,7 @@ timerDisplay.addEventListener('click', () => {
 
 timerInput.addEventListener('keyup', (event) => {
   const { code } = event;
-  const isExitCode = code === 'Escape' ||
-                    code === 'Space' ||
-                    code === 'Enter';
+  const isExitCode = code === 'Escape' || code === 'Space' || code === 'Enter';
   if (isExitCode) {
     Elements.showTimerDisplay();
 
