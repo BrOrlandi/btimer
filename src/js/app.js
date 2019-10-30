@@ -85,7 +85,10 @@ document.addEventListener('keyup', (event) => {
 });
 
 timerDisplay.addEventListener('click', () => {
-  Elements.showTimerInput();
+  if (!Timer.isRunning()) {
+    Elements.showTimerInput();
+  }
+
   pauseTimer();
 });
 
